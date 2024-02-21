@@ -1,0 +1,561 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Invoices or receipts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .normal {
+            font-weight: 400 !important;
+        }
+
+        .thin {
+            font-weight: 300;
+        }
+
+        .tiny {
+            font-weight: 200;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            width: 100% !important;
+            height: 100%;
+            line-height: 1.6;
+        }
+
+        /* Let's make sure all tables have defaults */
+        table td {
+            vertical-align: top;
+        }
+
+        /* -------------------------------------
+    BODY & CONTAINER
+------------------------------------- */
+        body {
+            background-color: #f6f6f6;
+        }
+
+        .body-wrap {
+            background-color: #f6f6f6;
+            width: 100%;
+        }
+
+        .container {
+            display: block !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            /* makes it centered */
+            clear: both !important;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
+        }
+
+        /* -------------------------------------
+    HEADER, FOOTER, MAIN
+------------------------------------- */
+        .main {
+            background: #fff;
+            border: 1px solid #e9e9e9;
+            border-radius: 3px;
+        }
+
+        .content-wrap {
+            padding: 20px;
+        }
+
+        .content-block {
+            padding: 0 0 20px;
+        }
+
+        .header {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            width: 100%;
+            clear: both;
+            color: #999;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #999;
+        }
+
+        .footer p,
+        .footer a,
+        .footer unsubscribe,
+        .footer td {
+            font-size: 12px;
+        }
+
+        /* -------------------------------------
+    GRID AND COLUMNS
+------------------------------------- */
+        .column-left {
+            float: left;
+            width: 50%;
+        }
+
+        .column-right {
+            float: left;
+            width: 50%;
+        }
+
+        /* -------------------------------------
+    TYPOGRAPHY
+------------------------------------- */
+        h1,
+        h2,
+        h3 {
+            font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            color: #000;
+            margin: 40px 0 0;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        p,
+        ul,
+        ol {
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        p li,
+        ul li,
+        ol li {
+            margin-left: 5px;
+            list-style-position: inside;
+        }
+
+        /* -------------------------------------
+    LINKS & BUTTONS
+------------------------------------- */
+        a {
+            color: #348eda;
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            text-decoration: none;
+            color: #FFF;
+            background-color: #348eda;
+            border: solid #348eda;
+            border-width: 10px 20px;
+            line-height: 2;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            display: inline-block;
+            border-radius: 5px;
+            text-transform: capitalize;
+        }
+
+        /* -------------------------------------
+    OTHER STYLES THAT MIGHT BE USEFUL
+------------------------------------- */
+        .last {
+            margin-bottom: 0;
+        }
+
+        .first {
+            margin-top: 0;
+        }
+
+        .padding {
+            padding: 10px 0;
+        }
+
+        .aligncenter {
+            text-align: center;
+        }
+
+        .alignright {
+            text-align: right;
+        }
+
+        .alignleft {
+            text-align: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /* -------------------------------------
+    Alerts
+------------------------------------- */
+        .alert {
+            font-size: 16px;
+            color: #fff;
+            font-weight: 500;
+            padding: 20px;
+            text-align: center;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .alert a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .alert.alert-warning {
+            background: #ff9f00;
+        }
+
+        .alert.alert-bad {
+            background: #d0021b;
+        }
+
+        .alert.alert-good {
+            background: #68b90f;
+        }
+
+        .non-margin {
+            margin: 0 !important;
+        }
+
+        .vertical-space {
+            padding-top: 20px !important;
+            padding-bottom: 10px !important;
+        }
+
+
+
+        /* -------------------------
+Header of origin and destination
+---------------------------- */
+        .origin-destination-header {
+            padding-left: 30px;
+            margin: 0;
+        }
+
+        .header-title {
+            background-color: #b6b6b6;
+        }
+
+        .po-title {
+            padding: 0 0 20px 46px !important;
+            color: white;
+            font-size: 30px;
+            text-shadow: 0 2px 5px black;
+            margin-top: 21px;
+        }
+
+        .po-list-header {
+            background-color: #f6f6f6;
+            padding: 5px 15px !important;
+        }
+
+        .po-list-body {
+            padding: 25px !important;
+        }
+
+        .po-list-total {
+            padding: 0;
+        }
+
+        .po-list-body td {
+            text-align: center;
+            color: gray;
+        }
+
+        .po-list-header td {
+            text-align: left;
+            padding-left: 10px !important;
+        }
+
+        .po-list-total>td {
+            text-align: right;
+            --background-color: #81b2ff;
+            color: #b6b6b6;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .po-list-total__text {
+            background-color: #f6f6f6;
+            text-shadow: 5px 5px 2px #fff;
+            color: black;
+            margin-right: 12px;
+            margin-top: -52px;
+        }
+
+        .po-list-footer hr {
+            border-bottom: none !important;
+            margin-top: 10px;
+            border-top: #eee 1px solid;
+        }
+
+        .po-separator {
+            margin: 0 75px 0 60px;
+            border-top: none;
+
+            border-color: #eee;
+        }
+
+        .po-separator-header {
+            margin: 0;
+            border-top: none;
+            width: 100%;
+            border-color: #eee;
+        }
+
+        /* -------------------------------------
+    INVOICE
+------------------------------------- */
+        .invoice {
+            margin: 0 auto;
+            text-align: left;
+            width: 100%;
+        }
+
+        .invoice td {
+            padding: 5px 0;
+        }
+
+        .invoice .invoice-items {
+            width: 100%;
+        }
+
+        .invoice .invoice-items td {
+            border-top: #eee 1px solid;
+        }
+
+        .invoice .invoice-items .total td {
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            font-weight: 700;
+        }
+
+        /* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
+        @media only screen and (max-width: 640px) {
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-weight: 600 !important;
+                margin: 20px 0 5px !important;
+            }
+
+            h1 {
+                font-size: 22px !important;
+            }
+
+            h2 {
+                font-size: 18px !important;
+            }
+
+            h3 {
+                font-size: 16px !important;
+            }
+
+            .container {
+                width: 100% !important;
+            }
+
+            .content,
+            .content-wrapper {
+                padding: 10px !important;
+            }
+
+            .invoice {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="body-wrap">
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="container" width="600">
+                    <div class="content">
+                        <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <!-- Header title -->
+                                <tr class="header-title">
+                                    <td>
+                                        <h1 class="po-title thin vertical-space">Đơn đặt hàng</h1>
+                                    </td>
+                                </tr>
+
+                                <!-- Header separator -->
+                                <tr>
+                                    <td>
+                                        <hr class="po-separator non-margin">
+                                        </hr>
+                                    </td>
+                                </tr>
+
+                                <!-- Purchase body -->
+                                <tr>
+                                    <td class="content-wrap aligncenter">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tbody>
+
+                                                <!-- LOGO & PO Header Detail-->
+                                                <tr>
+                                                    <td class="vertical-space header">
+                                                        <table class="origin-destination-header" width="100%"
+                                                            cellpadding="0" cellspacing="0">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <!-- Applicant Image, address -->
+                                                                    <td class="alignleft content-block">
+                                                                        <table cellpadding="0" cellspacing="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <div>Tên người mua: {{receiver}}</div>
+                                                                                        <div>Địa chỉ: {{address}}</div>
+                                                                                        <div>Ghi chú: {{note}}</div>
+                                                                                        <div>Số điện thoại: {{phone}}</div>
+                                                                                        <div>Email: {{email}}</div>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+
+                                                                    </td>
+
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+
+                                                </tr>
+                                                <!-- Purchase List -->
+                                                <tr>
+                                                    <td class="po-list-body">
+
+                                                        <!--Services -->
+                                                        <table class="invoice">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <table class="invoice-items" cellpadding="0"
+                                                                            cellspacing="0">
+                                                                            <thead class="po-list-header">
+                                                                                <tr>
+                                                                                    <td>Tên sản phẩm</td>
+                                                                                    <td>Màu sắc</td>
+                                                                                    <td>Kích thước</td>
+                                                                                    <td>Giá</td>
+                                                                                    <td>Số lượng</td>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="po-list-body">
+                                                                                {{listProduct}}
+                                                                            </tbody>
+                                                                            <tfoot class="po-list-footer">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <hr>
+                                                                                        </hr>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <hr>
+                                                                                        </hr>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <hr>
+                                                                                        </hr>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <hr>
+                                                                                        </hr>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tfoot>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Total purchase list -->
+                                                <tr class="po-list-total alignright">
+                                                    <td class="alignright">
+
+                                                        <table class="po-list-total__text"
+                                                            style="padding:10px;text-align: left;float: right;">
+                                                            <tr>
+                                                                <td><b>Tổng tiền:</b></td>
+                                                                <td><span class="thin">{{totalAmount}}</span></td>
+                                                            </tr>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>
